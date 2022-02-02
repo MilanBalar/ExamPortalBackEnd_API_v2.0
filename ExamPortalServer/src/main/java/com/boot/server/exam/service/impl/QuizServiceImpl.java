@@ -43,11 +43,7 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public void deleteQuizById(Long quizId) {
 		
-	   //this.quizRepository.deleteById(quizId);
-		TblQuiz tblQuiz=new TblQuiz();
-		tblQuiz.setQuizId(quizId);
-        this.quizRepository.delete(tblQuiz);		
-
+	   this.quizRepository.deleteById(quizId);
 	}
 
 }

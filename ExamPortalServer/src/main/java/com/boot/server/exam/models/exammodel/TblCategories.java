@@ -24,7 +24,7 @@ public class TblCategories {
 	
 	
 	//relation with TblQuiz
-	@OneToMany(mappedBy = "tblCategories",fetch = FetchType.EAGER, cascade = CascadeType.ALL) //  FetchType.Lazy means when we getter the data load, but when we call this class this time not data load.
+	@OneToMany(mappedBy = "tblCategories",fetch = FetchType.LAZY, cascade = CascadeType.ALL) //  FetchType.Lazy means when we getter the data load, but when we call this class this time not data load.
 	@JsonIgnore //bcoz when we fetch the data of category, so we not want quiz data. also we not want infinite loop
 	private Set<TblQuiz> quizzes=new LinkedHashSet<>(); // LinkedHashSet maintain the order of quiz
 	
