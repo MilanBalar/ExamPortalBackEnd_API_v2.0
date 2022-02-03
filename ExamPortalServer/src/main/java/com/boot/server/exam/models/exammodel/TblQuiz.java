@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,10 +23,11 @@ public class TblQuiz {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long quizId;
 	private String title;
+	@Column(length = 5000)
 	private String discription;
 	private String maxMarks;
 	private String noOfQuestion;
-	private boolean isActive=false;
+	private boolean isActive=true;
 	
 	
 	//relation with TblCategories

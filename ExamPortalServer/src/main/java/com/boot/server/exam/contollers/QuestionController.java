@@ -47,6 +47,7 @@ public class QuestionController {
 	}
 
 	//get all questions of any quiz
+	//this method is for user, for shown the question according to no. of questions 
 	@GetMapping("/quiz/{quizId}")
 	public ResponseEntity<?> getQuestionsOfQuiz(@PathVariable("quizId") Long quizId){
 		
@@ -69,6 +70,18 @@ public class QuestionController {
 		 Collections.shuffle(list);
 		return ResponseEntity.ok(list);
 	}
+	
+	//get all available questions
+	//this method is for Admin, for shown all the question 
+	@GetMapping("/quiz/all/{quizId}")
+	public ResponseEntity<?> getAllQuestionsAdmin(@PathVariable("quizId") Long quizId) {
+
+		// for get all the question of quiz
+		TblQuiz tblQuiz = new TblQuiz();
+		tblQuiz.setQuizId(quizId);
+		Set<TblQuestion> questionsOfQuiz = this.questionService.getQuestionsOfQuiz(tblQuiz);
+		return ResponseEntity.ok(questionsOfQuiz);
+    }
 	
 	//get question by id
 	@GetMapping("/{questionId}")
