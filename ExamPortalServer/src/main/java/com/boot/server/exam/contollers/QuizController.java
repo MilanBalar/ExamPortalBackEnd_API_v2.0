@@ -1,5 +1,7 @@
 package com.boot.server.exam.contollers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.boot.server.exam.models.exammodel.TblCategories;
 import com.boot.server.exam.models.exammodel.TblQuiz;
 import com.boot.server.exam.service.QuizService;
 
@@ -53,4 +56,12 @@ public class QuizController {
 		this.quizService.deleteQuizById(quizId);
 	}
 
+	//get quizzes by category id
+	@GetMapping("/category/{catId}")
+	public List<TblQuiz> getQuizzesByCategoryId(@PathVariable("catId") Long catId){
+		TblCategories tblCategorie = new TblCategories();
+		tblCategorie.setCatId(catId);
+	  return this.quizService.getQuizzesOfCategory(tblCategorie);
+	}
+	
 }
