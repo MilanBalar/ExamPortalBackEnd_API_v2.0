@@ -27,7 +27,8 @@ public class TblQuiz {
 	private String discription;
 	private String maxMarks;
 	private String noOfQuestion;
-	private boolean isActive=true;
+	private boolean active;
+	
 	
 	
 	//relation with TblCategories
@@ -46,13 +47,13 @@ public class TblQuiz {
 	}
 
 
-	public TblQuiz(String title, String discription, String maxMarks, String noOfQuestion, boolean isActive) {
+	public TblQuiz(String title, String discription, String maxMarks, String noOfQuestion,boolean active) {
 		super();
 		this.title = title;
 		this.discription = discription;
 		this.maxMarks = maxMarks;
 		this.noOfQuestion = noOfQuestion;
-		this.isActive = isActive;
+		this.active = active;
 	}
 
 
@@ -105,17 +106,6 @@ public class TblQuiz {
 		this.noOfQuestion = noOfQuestion;
 	}
 
-
-	public boolean isActive() {
-		return isActive;
-	}
-
-
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-
-
 	public TblCategories getTblCategories() {
 		return tblCategories;
 	}
@@ -133,6 +123,16 @@ public class TblQuiz {
 
 	public void setQuestions(Set<TblQuestion> questions) {
 		this.questions = questions;
+	}
+
+
+	public boolean isActive() {
+		return active;
+	}
+
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 	
