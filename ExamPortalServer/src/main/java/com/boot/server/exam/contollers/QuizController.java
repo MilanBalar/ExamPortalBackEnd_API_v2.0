@@ -63,5 +63,19 @@ public class QuizController {
 		tblCategorie.setCatId(catId);
 	  return this.quizService.getQuizzesOfCategory(tblCategorie);
 	}
+   
+	//get Active quizzes
+	@GetMapping("/active")
+	public List<TblQuiz> getActiveQuizzes(){
+		return this.quizService.getActiveQuizzes();
+	}
+	
+	//get Active quizzes of category
+	@GetMapping("/category/active/{catId}")
+	public List<TblQuiz> getActiveQuizzesOfcategory(@PathVariable("catId") Long catId){
+		   TblCategories tblCategorie = new TblCategories();
+		   tblCategorie.setCatId(catId);
+		return this.quizService.getActiveQuizzesOfCategory(tblCategorie);
+	}
 	
 }

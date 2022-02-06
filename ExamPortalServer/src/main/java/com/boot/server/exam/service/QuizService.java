@@ -19,5 +19,9 @@ public interface QuizService {
 	public void deleteQuizById(Long quizId);
 	
 	public List<TblQuiz> getQuizzesOfCategory(TblCategories tblCategorie);
+	
+	public List<TblQuiz> getActiveQuizzes();
+	
+	public List<TblQuiz> getActiveQuizzesOfCategory(TblCategories tblCategories);
 
 }
